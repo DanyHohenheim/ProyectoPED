@@ -40,7 +40,7 @@
 
 [cite_start]El siguiente diagrama representa la capa de dominio y la lógica de estructuras en memoria que sustentan el funcionamiento del sistema[cite: 28]:
 
-```plantuml
+
 @startuml
 skinparam style strictuml
 skinparam packageStyle frame
