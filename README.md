@@ -212,7 +212,7 @@ Cada nodo representa un estudiante:
 - Eliminar registros.
 - Mostrar listado ordenado.
 
-2. List <Estudiante>
+2. List<Estudiante>
 
 **Justificación:**
 
@@ -230,7 +230,7 @@ Se utiliza como estructura auxiliar para:
 - Guardar el resultado del recorrido in-orden.
 - Exportar datos o mostrarlos en pantalla.
 
-3. Dictionary <string, Estudiante>
+3. Dictionary<string, Estudiante>
 
 **Justificación:**
 
