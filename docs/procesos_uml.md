@@ -1,36 +1,44 @@
-# Procesos y Arquitectura del Sistema
+# Sección de Procesos y Diagrama UML
 
-## Procesos del Sistema
+## 1. Procesos del sistema
 
-[cite_start]Para poder definir nuestro proyecto hemos creado los procesos que nos ayudarán a comprender cómo el sistema manejara la información[cite: 4]:
+[cite_start]Para definir el alcance de la Fase 1 del proyecto **Registro de Estudiantes**, se han establecido los procesos clave que rigen el manejo de la información y la lógica interna de la aplicación[cite: 3, 4]:
 
-* [cite_start]**Eficiencia algorítmica:** El sistema utilizará un Árbol Binario de Búsqueda como estructura de datos central para mantener los registros ordenados esto nos permitirá optimizar las consultas y el ordenamiento por carne teniendo como respaldo permanente de la información a la base de datos que se creó[cite: 5].
-* [cite_start]**Probabilidad y Simplicidad técnica:** Usaremos SQLite ya que nos permite operar un archivo local en nuestro caso `registro_estudiantes.db`, eliminando la necesidad de administrar un servidor de base de datos independientes y facilitando la integración mediante ADO.NET en C# WinForms[cite: 6].
-* [cite_start]**Integridad Relacional Fuerte:** El sistema protege la consistencia de los datos ya que se utilizó llaves foráneas y restricciones lógicas para así asegurarnos que por ejemplo un estudiante no puede registrarse sin pertenecer a una carrera existente o evitar que existan carnet ni nombre de usuarios duplicados (`UNIQUE`)[cite: 7].
-* [cite_start]**Preservación Histórica:** Las operaciones de eliminación ("Delete") sobre estudiantes y carreras se manejan como "bajas lógicas", actualizando un campo Activo a 0 (o false en C#) en lugar de borrar el registro físicamente[cite: 8].
-* [cite_start]**Auditoría Transparente:** Cualquier operación que modifique el estado de un estudiante (Alta, Actualización o Baja) genera automáticamente un registro de trazabilidad en la tabla `MovimientosEstudiante`[cite: 9].
+* [cite_start]**Eficiencia algorítmica:** El sistema utiliza un Árbol Binario de Búsqueda (ABB) como estructura de datos central para mantener los registros ordenados en memoria[cite: 5]. [cite_start]Esto permite optimizar las consultas y el ordenamiento por carné, utilizando la base de datos SQLite como respaldo permanente de la información[cite: 5].
+* [cite_start]**Probabilidad y Simplicidad técnica:** Se emplea SQLite para operar mediante un archivo local (`registro_estudiantes.db`), lo que elimina la necesidad de administrar servidores independientes y facilita la integración con C# WinForms a través de ADO.NET[cite: 6].
+* [cite_start]**Integridad Relacional Fuerte:** La consistencia de los datos se protege mediante el uso de llaves foráneas y restricciones lógicas en el esquema[cite: 7]. [cite_start]Esto asegura que un estudiante siempre pertenezca a una carrera existente y evita duplicidad en carnés o nombres de usuario mediante la restricción `UNIQUE`[cite: 7].
+* [cite_start]**Preservación Histórica:** Las operaciones de eliminación de estudiantes y carreras no borran registros físicamente[cite: 8]. [cite_start]En su lugar, se ejecutan "bajas lógicas" actualizando el campo `Activo` a `0` (o `false` en el código C#)[cite: 8].
+* [cite_start]**Auditoría Transparente:** Cualquier acción que modifique el estado de un estudiante (Alta, Actualización o Baja) dispara automáticamente un registro de trazabilidad en la tabla `MovimientosEstudiante`[cite: 9].
 
-## Actores y Acciones
+## 2. Actores y Acciones
 
-[cite_start]En la carpeta de modelo de datos y la carpeta `seed_inicial.sql` que contiene los script de inicialización confirman dos niveles de acceso[cite: 11]:
+[cite_start]De acuerdo con el modelo de datos y los scripts de inicialización, el sistema cuenta con dos niveles de acceso definidos[cite: 10, 11]:
 
-* [cite_start]**Administrador (Admin):** Control total[cite: 12]. [cite_start]Puede realizar lecturas y creaciones (CRUD parcial) de usuarios para el control de acceso[cite: 12]. [cite_start]Administra el catálogo de carreras y hereda todas las capacidades del operador[cite: 13].
-* [cite_start]**Operador:** Maneja el padrón[cite: 14]. [cite_start]Ejecuta el CRUD completo de estudiantes desde los formularios Winforms (`FrmEstudiantes`)[cite: 14].
+| Actor | Descripción de Acciones |
+| :--- | :--- |
+| **Administrador (Admin)** | [cite_start]Posee control total del sistema[cite: 12]. [cite_start]Realiza operaciones CRUD parciales sobre los usuarios para el control de acceso y administra el catálogo de carreras[cite: 12, 13]. [cite_start]Hereda todas las funciones del operador[cite: 13]. |
+| **Operador** | [cite_start]Encargado del manejo del padrón estudiantil[cite: 14]. [cite_start]Ejecuta el ciclo de vida completo (CRUD) de los estudiantes a través de los formularios WinForms, específicamente desde `FrmEstudiantes`[cite: 14]. |
 
-## Casos de Uso (Fase 1)
+## 3. Casos de Uso (Fase 1)
 
-* [cite_start]**Gestionar Estudiantes (CRUD Principal):** [cite: 16]
-    * [cite_start]*Crear:* Registrar un estudiante asociándolo con un carné, datos personales y un IdCarrera[cite: 17].
-    * [cite_start]*Actualizar:* Modificar la información general del estudiante[cite: 18].
-    * [cite_start]*Baja Lógica:* Cambiar el estado activo del estudiante a inactivo[cite: 19].
-* [cite_start]**Consultar y Listar Estudiantes:** [cite: 20] [cite_start]Buscar estudiantes específicos por carné o ID y llenar tablas visuales (`DataGridView`) utilizando las estructuras en memoria[cite: 21].
-* [cite_start]**Gestionar Carreras (CRUD Parcial):** [cite: 22] [cite_start]Cargar la lista de carreras en componentes visuales (como un `ComboBox`) y, opcionalmente, registrar nuevas carreras[cite: 23].
-* [cite_start]**Gestionar Usuarios (CRUD Parcial):** [cite: 24] [cite_start]Cargar usuarios para el control básico de acceso a la aplicación WinForms[cite: 25].
-* [cite_start]**Registrar Movimiento (Sistema):** [cite: 26] [cite_start]Caso de uso incluido (automático) que inserta un registro en la entidad `MovimientoEstudiante` detallando el TipoMovimiento y la fecha de la acción[cite: 27].
+[cite_start]Durante la implementación inicial se han priorizado los siguientes casos de uso[cite: 15]:
 
-## Diagrama UML
+### Gestión de Estudiantes (CRUD Principal)
+* [cite_start]**Crear:** Registro de nuevos estudiantes vinculados a un carné único, datos personales y una carrera específica (`IdCarrera`)[cite: 16, 17].
+* [cite_start]**Actualizar:** Modificación de la información general almacenada del estudiante[cite: 18].
+* [cite_start]**Baja Lógica:** Cambio de estado de un estudiante de activo a inactivo para preservar el historial[cite: 19].
+* [cite_start]**Consultar y Listar:** Localización de estudiantes por carné o ID y visualización de listados ordenados en componentes `DataGridView` mediante el procesamiento del ABB en memoria[cite: 20, 21].
 
-A continuación se presenta el modelo de Capa de Dominio y Lógica de Estructuras del sistema:
+### Gestión de Catálogos y Seguridad
+* [cite_start]**Gestionar Carreras (CRUD Parcial):** Carga de carreras en componentes visuales (`ComboBox`) y registro opcional de nuevas entidades[cite: 22, 23].
+* [cite_start]**Gestionar Usuarios (CRUD Parcial):** Carga y administración básica de las cuentas de acceso para la aplicación[cite: 24, 25].
+
+### Procesos del Sistema
+* [cite_start]**Registrar Movimiento:** Proceso automático que inserta un registro de auditoría en `MovimientosEstudiante`, capturando el tipo de acción y la marca de tiempo[cite: 26, 27].
+
+## 4. Diagrama UML
+
+[cite_start]El siguiente diagrama representa la capa de dominio y la lógica de estructuras en memoria que sustentan el funcionamiento del sistema[cite: 28]:
 
 ```plantuml
 @startuml
