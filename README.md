@@ -134,4 +134,135 @@ de movimientos con fecha, usuario responsable y descripción del cambio.
 
 ---
 
-## 5. Estructura del Repositorio
+## 5. Situación problemática.
+
+El sistema de registro de estudiantes tiene como objetivo gestionar de manera eficiente la información académica, permitiendo realizar operaciones de altas, bajas, modificaciones y consultas de estudiantes, utilizando como identificador principal el carné o ID.
+
+Actualmente, el problema radica en la necesidad de:
+
+- Mantener los registros ordenados automáticamente.
+- Realizar búsquedas rápidas por ID.
+- Evitar duplicidad de registros.
+- Facilitar consultas organizadas (ejemplo: listados ordenados).
+
+Para resolver esto, se hace la propuesta del uso de una estructura eficiente como un Árbol Binario de Búsqueda (ABB), que permite:
+
+- Insertar estudiantes manteniendo orden.
+- Buscar de forma eficiente.
+- Eliminar registros sin perder la estructura.
+
+## 6. Flujo principal del sistema.
+
+1.	Alta de estudiante.
+
+- Se solicita el ingreso de datos (ID, nombre, carrera, etc.)
+- Se valida que el ID no exista previamente.
+- Se inserta en el árbol respetando la propiedad:
+    - Menores a la izquierda.
+    - Mayores a la derecha.
+
+2.	Baja de estudiante.
+
+ - Se busca el estudiante por ID.
+ - Si existe, se elimina considerando los casos:
+    -	Nodo hoja.
+    -	Nodo con un hijo.
+    -	Nodo con dos hijos (reemplazo por sucesor).
+  	
+3.	Modificación de datos.
+
+ - Se busca el estudiante.
+ - Se actualizan los datos (sin cambiar el ID).
+
+4.	Consultas.
+
+  - **Individual:** búsqueda directa por ID.
+  - **General:** recorrido in-orden del árbol para mostrar datos ordenados.
+
+## 7. Reglas del negocio (validaciones).
+
+  - El ID del estudiante debe ser único.
+  - No se permite registrar estudiantes con campos vacíos obligatorios.
+  - No se puede eliminar un estudiante inexistente.
+  - Las modificaciones solo se permiten si el estudiante existe.
+  - Los datos deben cumplir formatos válidos (ejemplo: ID numérico)
+
+## 8. Estructuras de datos.
+
+1. Árbol Binario de Búsqueda (ABB).
+
+**Justificación:**
+
+Es la estructura principal del sistema, ya que permite:
+
+- Mantener los estudiantes ordenados automáticamente.
+- Realizar búsquedas en tiempo eficiente (O(log n) en promedio).
+- Recorrer los datos en orden con recorrido in-orden.
+
+**Aplicación:**
+
+Cada nodo representa un estudiante:
+
+<img width="339" height="125" alt="image" src="https://github.com/user-attachments/assets/1c730c5b-f965-4a82-a786-e89d56548ac3" />
+
+**Uso:**
+
+- Insertar estudiantes.
+- Buscar por ID.
+- Eliminar registros.
+- Mostrar listado ordenado.
+
+2. List <Estudiante>
+
+**Justificación:**
+
+Se utiliza como estructura auxiliar para:
+
+- Almacenar temporalmente resultados de consultas.
+- Mostrar datos en interfaces (tablas, reportes).
+
+**Aplicación:**
+
+<img width="475" height="31" alt="image" src="https://github.com/user-attachments/assets/695bf9b8-9a3d-482d-81c9-6ae873df9058" />
+
+**Uso:**
+
+- Guardar el resultado del recorrido in-orden.
+- Exportar datos o mostrarlos en pantalla.
+
+3. Dictionary <string, Estudiante>
+
+**Justificación:**
+
+Permite búsquedas extremadamente rápidas (O(1)) por ID, complementando el árbol.
+
+**Aplicación:**
+
+<img width="548" height="32" alt="image" src="https://github.com/user-attachments/assets/5cbc7077-1de7-42ef-ac12-8912887780a8" />
+
+**Uso:**
+
+- Validar rápidamente si un estudiante ya existe.
+- Acceso directo sin recorrer el árbol.
+
+## 9. Memoria vs Base de Datos.
+
+En memoria (Estructuras de Datos):
+
+- Árbol Binario de Búsqueda.
+- List.
+- Disctionary.
+
+Estas estructuras permiten manipulación rápida durante la ejecución del programa.
+
+En Base de Datos (Persistencia):
+
+- Tabla de estudiantes.
+- Almacenamiento permanente de registros.
+- Operaciones CRUD (Create, Read, Update, Delete).
+
+Relación:
+
+- Al iniciar el sistema - Se cargan los datos desde la BD al árbol.
+- Durante la ejecución - Se trabaja en memoria.
+- Al finaizar o guardar - Se sincroniza con la BD.
