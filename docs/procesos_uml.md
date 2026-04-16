@@ -12,7 +12,7 @@ Para definir el alcance de la Fase 1 del proyecto **Registro de Estudiantes**, s
 
 ## 2. Actores y Acciones
 
-[cite_start]De acuerdo con el modelo de datos y los scripts de inicialización, el sistema cuenta con dos niveles de acceso definidos:
+De acuerdo con el modelo de datos y los scripts de inicialización, el sistema cuenta con dos niveles de acceso definidos:
 
 | Actor | Descripción de Acciones |
 | :--- | :--- |
@@ -39,4 +39,4 @@ Durante la implementación inicial se han priorizado los siguientes casos de uso
 ## 4. Diagrama UML
 
 El siguiente diagrama representa la capa de dominio y la lógica de estructuras en memoria que sustentan el funcionamiento del sistema:
-
+<img width="871" height="512" alt="Image" src="https://github.com/user-attachments/assets/257f1a3c-4838-452a-a0f2-677b745c1357" />
