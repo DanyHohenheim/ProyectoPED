@@ -1,0 +1,17 @@
+C:\Users\Daniel Carcamo\source\repos\RegistroEstudiantes\RegistroEstudiantes\bin\Debug\net8.0-windows\RegistroEstudiantes.exe
+C:\Users\Daniel Carcamo\source\repos\RegistroEstudiantes\RegistroEstudiantes\bin\Debug\net8.0-windows\RegistroEstudiantes.deps.json
+C:\Users\Daniel Carcamo\source\repos\RegistroEstudiantes\RegistroEstudiantes\bin\Debug\net8.0-windows\RegistroEstudiantes.runtimeconfig.json
+C:\Users\Daniel Carcamo\source\repos\RegistroEstudiantes\RegistroEstudiantes\bin\Debug\net8.0-windows\RegistroEstudiantes.dll
+C:\Users\Daniel Carcamo\source\repos\RegistroEstudiantes\RegistroEstudiantes\bin\Debug\net8.0-windows\RegistroEstudiantes.pdb
+C:\Users\Daniel Carcamo\source\repos\RegistroEstudiantes\RegistroEstudiantes\obj\Debug\net8.0-windows\RegistroEstudiantes.Form1.resources
+C:\Users\Daniel Carcamo\source\repos\RegistroEstudiantes\RegistroEstudiantes\obj\Debug\net8.0-windows\RegistroEstudiantes.csproj.GenerateResource.cache
+C:\Users\Daniel Carcamo\source\repos\RegistroEstudiantes\RegistroEstudiantes\obj\Debug\net8.0-windows\RegistroEstudiantes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Daniel Carcamo\source\repos\RegistroEstudiantes\RegistroEstudiantes\obj\Debug\net8.0-windows\RegistroEstudiantes.AssemblyInfoInputs.cache
+C:\Users\Daniel Carcamo\source\repos\RegistroEstudiantes\RegistroEstudiantes\obj\Debug\net8.0-windows\RegistroEstudiantes.AssemblyInfo.cs
+C:\Users\Daniel Carcamo\source\repos\RegistroEstudiantes\RegistroEstudiantes\obj\Debug\net8.0-windows\RegistroEstudiantes.csproj.CoreCompileInputs.cache
+C:\Users\Daniel Carcamo\source\repos\RegistroEstudiantes\RegistroEstudiantes\obj\Debug\net8.0-windows\RegistroEstudiantes.dll
+C:\Users\Daniel Carcamo\source\repos\RegistroEstudiantes\RegistroEstudiantes\obj\Debug\net8.0-windows\refint\RegistroEstudiantes.dll
+C:\Users\Daniel Carcamo\source\repos\RegistroEstudiantes\RegistroEstudiantes\obj\Debug\net8.0-windows\RegistroEstudiantes.pdb
+C:\Users\Daniel Carcamo\source\repos\RegistroEstudiantes\RegistroEstudiantes\obj\Debug\net8.0-windows\RegistroEstudiantes.genruntimeconfig.cache
+C:\Users\Daniel Carcamo\source\repos\RegistroEstudiantes\RegistroEstudiantes\obj\Debug\net8.0-windows\ref\RegistroEstudiantes.dll
+C:\Users\Daniel Carcamo\source\repos\RegistroEstudiantes\RegistroEstudiantes\obj\Debug\net8.0-windows\RegistroEstudiantes.FrmEstudiantes.resources
