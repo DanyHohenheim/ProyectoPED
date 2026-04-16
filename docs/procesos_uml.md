@@ -12,7 +12,7 @@ Para definir el alcance de la Fase 1 del proyecto **Registro de Estudiantes**, s
 
 ## 2. Actores y Acciones
 
-De acuerdo con el modelo de datos y los scripts de inicialización, el sistema cuenta con dos niveles de acceso definidos:
+El sistema cuenta con dos niveles de acceso definidos:
 
 | Actor | Descripción de Acciones |
 | :--- | :--- |
